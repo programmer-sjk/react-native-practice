@@ -1,19 +1,14 @@
-import { Dimensions, Image, StatusBar, StyleSheet } from "react-native";
+import { Image, ImageResizeMode } from "react-native";
 
-const styles = StyleSheet.create({
-  container: {
-    width: Dimensions.get("window").width,
-    height: 200,
-    resizeMode: "stretch",
-    marginTop: StatusBar.currentHeight,
-  },
-});
+export type DisplayImageProps = {
+  style: {
+    width?: number;
+    height?: number;
+    resizeMode?: ImageResizeMode;
+    marginTop?: number;
+  };
+};
 
-export function DisplayImage() {
-  return (
-    <Image
-      source={require("@/assets/images/to-do.png")}
-      style={styles.container}
-    />
-  );
+export function DisplayImage({ style }: DisplayImageProps) {
+  return <Image source={require("@/assets/images/to-do.png")} style={style} />;
 }
